@@ -61,10 +61,7 @@ class DrawerWidget extends StatelessWidget {
             ],
           ),
         ),
-        Divider(
-          height: 1.0,
-          color: Colors.white24,
-        ),
+        
         ListTile(
           leading: Image.asset('assets/account.png', width: 26.0,),
           title: Text('Accounts'),
