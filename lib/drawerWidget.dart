@@ -17,7 +17,6 @@ class DrawerWidget extends StatelessWidget {
                width: 60.0,
                height: 60.0,
                decoration: new BoxDecoration(
-                 color: const Color(0xff7c94b6),
                  image: new DecorationImage(
                    image: AssetImage('assets/photo.jpg'),
                    fit: BoxFit.cover,

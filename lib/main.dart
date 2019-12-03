@@ -1,4 +1,4 @@
-import 'package:aba/drawerWidget.dart';
+import 'package:aba/app_drawer.dart';
 import 'package:aba/grid.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ABA Mobile',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: Colors.white,
-        canvasColor: Colors.cyan[900],
+        canvasColor: Color(0xff002739),
         brightness: Brightness.dark,
       ),
       home: MyHomePage(title: 'ABA\' Mobile'),
@@ -36,16 +34,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
-        child: DrawerWidget(),
+        // child: DrawerWidget(),
+        child: AppDrawer(),
       ),
       appBar: AppBar(
-        iconTheme: new IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: Colors.white),
         title: Row(
           children: <Widget>[
-            Text('ABA', style: TextStyle(color: Colors.white),),
+            Text('BANK', style: TextStyle(color: Colors.white),),
             Text('\' ', 
               style: TextStyle(
-                color: Colors.red,
+                color: Color(0xffec3531),
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold
               ),
@@ -53,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Text('Mobile', style: TextStyle(color: Colors.white),),
           ],
         ),
-        backgroundColor: Colors.cyan[900],
+        backgroundColor: Color(0xff255b81),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.notifications_none),
@@ -63,78 +62,120 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.all(13.0),
             child: Container(
-               width: 30.0,
-               height: 30.0,
-               decoration: new BoxDecoration(
-                 color: const Color(0xff7c94b6),
-                 image: new DecorationImage(
-                   image: AssetImage('assets/photo.jpg'),
-                   fit: BoxFit.cover,
-                 ),
-                 borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
-                 border: new Border.all(
-                   color: Colors.white,
-                   width: 2.0,
-                 ),
-               ),
-             ),
+              width: 30.0,
+              height: 30.0,
+              decoration: new BoxDecoration(
+                  color: const Color(0xff7c94b6),
+                  image: new DecorationImage(
+                    image: AssetImage('assets/photo.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
+                border: new Border.all(
+                  color: Colors.white,
+                  width: 2.0,
+                ),
+              ),
+            ),
           ),
         ],
       ),
-      body: Container(
-        child: ListView(
-          children: <Widget>[
-            MenuGrid(),
-            Container(
-              color: Colors.cyanAccent[700],
-              child: Padding(
-                padding: const EdgeInsets.only(top: 35.0, bottom: 40.0, left: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Quick Transfer',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.white
-                      ),
-                    ),
-                    Text(
-                      'Create your template here to make transfer quicker',
-                      style: TextStyle(
-                        color: Colors.white
-                      ),
-                    )
-                  ],
-                ),
-              )
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              color: Colors.white,
+              child: MenuGrid(),
             ),
-            Container(
-              color: Colors.red[800],
-              child: Padding(
-                padding: const EdgeInsets.only(top: 35.0, bottom: 40.0, left: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Quick Payment',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.white
+          ),
+          Expanded(
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.only(left: 40),
+                      width: double.infinity,
+                      color: Color(0xff54b8d0),
+                      child: Stack(
+                        children: <Widget>[
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Quick Transfers',
+                                style: TextStyle(
+                                  fontSize: 30.0,
+                                  color: Colors.white
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Text(
+                                'Create your template here to make transfer quicker',
+                                style: TextStyle(
+                                  color: Colors.white
+                                ),
+                              )
+                            ],
+                          ),
+                          Positioned(
+                            child: Image(
+                              color: Colors.white30,
+                              image: AssetImage('assets/transfer.png'),
+                            ),
+                            right: -100,
+                            top: 20,
+                          )
+                        ],
                       ),
                     ),
-                    Text(
-                      'Paying your bills with templates is faster',
-                      style: TextStyle(
-                        color: Colors.white
+                  ),
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.only(left: 40),
+                      width: double.infinity,
+                      color: Color(0xffdd5e57),
+                      child: Stack(
+                        children: <Widget>[
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Quick Payment',
+                                style: TextStyle(
+                                  fontSize: 30.0,
+                                  color: Colors.white
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Text(
+                                'Paying your bills with templates is faster',
+                                style: TextStyle(
+                                  color: Colors.white
+                                ),
+                              )
+                            ],
+                          ),
+                          Positioned(
+                            child: Image(
+                              color: Colors.white30,
+                              image: AssetImage('assets/usd.png'),
+                            ),
+                            right: -100,
+                            top: 20,
+                          )
+                        ],
                       ),
-                    )
-                  ],
-                ),
-              )
-            )
-          ],
-        ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
       )
     );
   }
